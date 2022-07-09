@@ -1,5 +1,10 @@
+
 .App {
   text-align: center;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-rows: 10% 80% 10%;
 }
 
 .App-logo {
@@ -15,7 +20,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,11 +33,32 @@
   color: #61dafb;
 }
 
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+.grey {
+  background-color: #a7a7a770;
+}
+.footer {
+  background-color: #282c34;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+@media only screen and (max-width: 500px){
+  th, td {
+    font-size: 10px;
   }
 }
