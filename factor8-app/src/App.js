@@ -24,10 +24,10 @@ const calculateDose = (target, error) => {
   error = parseInt(error)
   // console.log("Dose:", target, "\nRange:",target - error, " - " , target + error)
   helper(target - error, target + error, [0,0,0,0,0], results)
-  results.forEach((result, key) => {
-    let unit = result[0]*b1 + result[1]*b2 + result[2]*b3 + result[3]*b4
-    // console.log( result, unit + " units")
-  })
+  // results.forEach((result, key) => {
+  //   let unit = result[0]*b1 + result[1]*b2 + result[2]*b3 + result[3]*b4
+  //   // console.log( result, unit + " units")
+  // })
   setAllCombinations([...Array.from(results.values())])
   
 }
@@ -96,7 +96,9 @@ const helper = (lowB, upB, currentBottles, results) => {
 
   return (
     <div className="App">
-      <header className="App-header">Thien Hoang
+      <header className="App-header">
+        <span>Factor VIII</span>
+        <span>Thien Hoang</span>        
       </header>
       <main>
         <div >
@@ -131,7 +133,7 @@ const helper = (lowB, upB, currentBottles, results) => {
                 <th scope="col">Dose</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className='result-container'>
               {allCombinations && allCombinations.map((result, i) => (
                 <tr key={i} className={i%2 === 0 ? 'grey' : null}>
                   <th scope="row">{i + 1}</th>
@@ -141,7 +143,7 @@ const helper = (lowB, upB, currentBottles, results) => {
                   <td>{result[3]}</td>
                   <td>{result[4]}</td>
                   <td>{result[0]*b1 + result[1]*b2 + result[2]*b3 + result[3]*b4}</td>
-              </tr>
+                </tr>
               ))}
             </tbody>
               
@@ -149,7 +151,7 @@ const helper = (lowB, upB, currentBottles, results) => {
         </div>
         </div>
       </main>
-      <footer className="footer"><span>Copyright © <a href='https://www.linkedin.com/in/nghiem-v-truong/' target='_blank' style={{'text-decoration': 'none', 'display': 'inline-block' }}>Nghiem Truong </a> - 2022</span>
+      <footer className="footer"><span>Copyright © <a href='https://nghiem-truong.surge.sh/' target='_blank' rel="noreferrer" style={{'text-decoration': 'none', 'display': 'inline-block' }}>Nghiem Truong </a> - 2022</span>
       </footer>
     </div>
   );
