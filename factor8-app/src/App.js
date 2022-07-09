@@ -22,12 +22,7 @@ const calculateDose = (target, error) => {
   if (target === '') return
   else target = parseInt(target)
   error = parseInt(error)
-  // console.log("Dose:", target, "\nRange:",target - error, " - " , target + error)
-  helper(target - error, target + error, [0,0,0,0,0], results)
-  // results.forEach((result, key) => {
-  //   let unit = result[0]*b1 + result[1]*b2 + result[2]*b3 + result[3]*b4
-  //   // console.log( result, unit + " units")
-  // })
+  helper(target - error, target + error, [0,0,0,0,0], results)  
   setAllCombinations([...Array.from(results.values())])
   
 }
@@ -83,6 +78,8 @@ const helper = (lowB, upB, currentBottles, results) => {
 
   const handleCalculateClick = () => {
     calculateDose(dose, error)
+    setUnit('units')
+    setOption('Dose:')
   }
 
   const handleResetClick = () => {
