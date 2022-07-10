@@ -6,16 +6,16 @@ function App() {
   const [weigth, setWeight] = useState('')
   const [dose, setDose] = useState('')
   const [option, setOption] = useState('Weight:')
-  const [unit, setUnit] = useState('Lbs')
+  const [unit, setUnit] = useState('Kg')
   const [error, setError] = useState(20)
   const [allCombinations, setAllCombinations] = useState(null)
  
 
 
   const b1 = 1050
-  const b2 = 752
-  const b3 = 438
-  const b4 = 232
+  const b2 = 764
+  const b3 = 364
+  const b4 = 252
 
 const calculateDose = (target, error) => {
   const results = new Map()
@@ -50,7 +50,7 @@ const helper = (lowB, upB, currentBottles, results) => {
 
   const handleWeightClick = () => {
     setOption('Weight:')
-    setUnit('Lbs')
+    setUnit('Kg')
   }
 
   const handleDoseClick = () => {
@@ -59,14 +59,14 @@ const helper = (lowB, upB, currentBottles, results) => {
   }
 
   const handleValueChange = (e) => {
-    if (unit === 'Lbs'){
+    if (unit === 'Kg'){
       let currWeight = parseInt(e.target.value)
-      let currDose = Math.floor(currWeight/2.2*50)
+      let currDose = Math.floor(currWeight*50)
       setWeight(currWeight)
       setDose(currDose)
     } else {
       let currDose = parseInt(e.target.value)
-      let currWeight = Math.floor(currDose/50*2.2)
+      let currWeight = Math.floor(currDose/50)
       setWeight(currWeight)
       setDose(currDose)
     }
@@ -86,7 +86,7 @@ const helper = (lowB, upB, currentBottles, results) => {
     setWeight('')
     setDose('')
     setOption('Weight:')
-    setUnit('Lbs')
+    setUnit('Kg')
     setError(20)
     setAllCombinations(null)
   }
@@ -106,7 +106,7 @@ const helper = (lowB, upB, currentBottles, results) => {
           </div>
           <div className="input-group flex-nowrap" style={{margin: '10px 0'}}>
             <span className="input-group-text" id="addon-wrapping">{option}</span>
-            <input type="number" value={unit === 'Lbs' ? weigth : dose} className="form-control" onChange={handleValueChange} placeholder={unit} aria-describedby="addon-wrapping"/>
+            <input type="number" value={unit === 'Kg' ? weigth : dose} className="form-control" onChange={handleValueChange} placeholder={unit} aria-describedby="addon-wrapping"/>
           </div>
           <div className="input-group flex-nowrap" style={{margin: '10px 0'}}>
             <span className="input-group-text" id="addon-wrapping">Error</span>
@@ -122,10 +122,10 @@ const helper = (lowB, upB, currentBottles, results) => {
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Botte 1050</th>
-                <th scope="col">Botte 752</th>
-                <th scope="col">Botte 438</th>
-                <th scope="col">Botte 232</th>
+                <th scope="col">Botte {b1}</th>
+                <th scope="col">Botte {b2}</th>
+                <th scope="col">Botte {b3}</th>
+                <th scope="col">Botte {b4}</th>
                 <th scope="col"># of Bottles</th>
                 <th scope="col">Dose</th>
               </tr>
